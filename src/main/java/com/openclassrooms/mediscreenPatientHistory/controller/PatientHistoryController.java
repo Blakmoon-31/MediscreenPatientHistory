@@ -17,6 +17,12 @@ import com.openclassrooms.mediscreenPatientHistory.service.PatientHistoryService
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * The REST controller for CRUD operations on patient history.
+ * 
+ * @author emmanuel
+ *
+ */
 @Api("API pour les opérations CRUD sur les historiques des patients.")
 @RestController
 public class PatientHistoryController {
@@ -25,9 +31,9 @@ public class PatientHistoryController {
 	private PatientHistoryService patientHistoryService;
 
 	/**
-	 * Get the list of all histories for one patient
+	 * Gets the list of all histories for one patient.
 	 * 
-	 * @return patientHistoryDtos - A list of PatientHystoryDto objects
+	 * @return A list of PatientHystoryDto objects
 	 */
 	@ApiOperation("Récupère la liste de tous les historiques d'un patient.")
 	@GetMapping("/patient/histories/get")
@@ -40,14 +46,14 @@ public class PatientHistoryController {
 	}
 
 	/**
-	 * Get a patient history by its id
+	 * Gets a patient history by its ID.
 	 * 
-	 * @param historyId - The id of the history
+	 * @param historyId - The ID of the history
 	 * @return A PatientHistoryDto object
 	 */
 	@ApiOperation("Récupère un historique patient à partir de son ID.")
 	@GetMapping("/patient/history/get")
-	public PatientHistoryDto getPatientHistoryByHistoryId(@RequestParam("historyId") int historyId) {
+	public PatientHistoryDto getPatientHistoryByHistoryId(@RequestParam("historyId") String historyId) {
 
 		PatientHistoryDto patientHistoryDto = patientHistoryService.getPatientHistoryByHistoryId(historyId);
 
@@ -55,9 +61,9 @@ public class PatientHistoryController {
 	}
 
 	/**
-	 * Add a patient history in the database
+	 * Adds a patient history in the database.
 	 * 
-	 * @param patientHistoryDto - The PatientHistoryDto object to add
+	 * @param patientHistoryDto - The patient history to add
 	 */
 	@ApiOperation("Ajoute un historique patient dans la base de données.")
 	@PostMapping("/patient/history/add")
@@ -67,10 +73,10 @@ public class PatientHistoryController {
 	}
 
 	/**
-	 * Update a patient history in the database
+	 * Updates a patient history in the database.
 	 * 
-	 * @param patientHistoryDto - The PatientHistoryDto object to update
-	 * @return The PatientHistoryDto updated
+	 * @param patientHistoryDto - The patient history to update
+	 * @return A PatientHistoryDto object
 	 */
 	@ApiOperation("Met à jour un historique patient.")
 	@PutMapping("/patient/history/update")
@@ -82,26 +88,26 @@ public class PatientHistoryController {
 	}
 
 	/**
-	 * Delete a patient history by its id
+	 * Deletes a patient history by its ID.
 	 * 
-	 * @param patientId - The id of the patient
+	 * @param historyId - The ID of the patient history to delete
 	 */
 	@ApiOperation("Supprime un historique patient de la base de données à partir de son ID.")
 	@DeleteMapping("/patient/history/delete")
-	public void deletePatientHistoryByPatientId(@RequestParam("historyId") int historyId) {
+	public void deletePatientHistoryByHistoryId(@RequestParam("historyId") String historyId) {
 
 		patientHistoryService.deletePatientHistoryByHistoryId(historyId);
 	}
 
 	/**
-	 * Delete all histories of a patient by his id
+	 * Deletes all histories of a patient by his ID.
 	 * 
-	 * @param patientId - The id of the patient
+	 * @param patientId - The ID of the patient
 	 */
-	@ApiOperation("En cas de suppression d'un patient, supprime tous ses historiques de la base de données à partir de so ID.")
+	@ApiOperation("En cas de suppression d'un patient, supprime tous ses historiques de la base de données à partir de son ID.")
 	@DeleteMapping("/patient/histories/delete")
 	public void deleteAllPatientHistoryByPatientId(@RequestParam("patientId") int patientId) {
 
-		patientHistoryService.deleteAllPatientHistoryByPatientId(patientId);
+		patientHistoryService.deleteAllPatientHistoriesByPatientId(patientId);
 	}
 }
