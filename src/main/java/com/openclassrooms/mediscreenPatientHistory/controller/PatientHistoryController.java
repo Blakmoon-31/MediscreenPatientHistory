@@ -61,7 +61,7 @@ public class PatientHistoryController {
 	}
 
 	/**
-	 * Adds a patient history in the database.
+	 * Adds a patient history.
 	 * 
 	 * @param patientHistoryDto - The patient history to add
 	 */
@@ -73,7 +73,7 @@ public class PatientHistoryController {
 	}
 
 	/**
-	 * Updates a patient history in the database.
+	 * Updates a patient history.
 	 * 
 	 * @param patientHistoryDto - The patient history to update
 	 * @return A PatientHistoryDto object

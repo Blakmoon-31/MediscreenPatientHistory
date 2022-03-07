@@ -93,7 +93,7 @@ public class PatientHistoryService {
 	}
 
 	/**
-	 * Deletes a patient history by its ID.
+	 * Deletes a patient history in the database by its ID.
 	 * 
 	 * @param historyId - The ID of the history to delete
 	 */
@@ -104,7 +104,7 @@ public class PatientHistoryService {
 	}
 
 	/**
-	 * Deletes all histories of a patient by his ID.
+	 * Deletes all histories of a patient in the database by his ID.
 	 * 
 	 * @param patientId - The ID of the patient
 	 */
