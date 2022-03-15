@@ -108,11 +108,7 @@
 			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.11.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
- 			</plugin>			
+			</plugin>			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
